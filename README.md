@@ -114,5 +114,5 @@ Deploy to AWS / Render / Railway
 👨‍💻 Author
 
 Sivatharshan
-Computer Science Graduate | Future Cybersecurity & Software Professional
+Computer Science Graduate | future Software Engineer & Software Professional
 Currently based in Australia
