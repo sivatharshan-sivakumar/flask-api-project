@@ -1,0 +1,6 @@
+flask
+flask-httpauth
+xmltodict
+dicttoxml
+boto3
+werkzeug

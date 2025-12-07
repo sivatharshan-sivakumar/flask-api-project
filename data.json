@@ -1,11 +1,83 @@
 [
     {
-        "name": "Battery Storage"
+        "gatewayID": "GW001",
+        "devices": [
+            {
+                "name": "Solar Panel 1",
+                "timestamp": "2025-12-04T13:00:00Z",
+                "voltage": 230,
+                "current": 5,
+                "real_power": 1150,
+                "reactive_power": 200
+            },
+            {
+                "name": "Inverter 1",
+                "timestamp": "2025-12-04T13:00:00Z",
+                "voltage": 230,
+                "current": 3,
+                "real_power": 690,
+                "reactive_power": 100
+            }
+        ]
     },
     {
-        "name": "Wind Turbine"
+        "gatewayID": "GW001",
+        "devices": [
+            {
+                "name": "Solar Panel",
+                "timestamp": "2025-12-04T13:00:00Z",
+                "voltage": 230,
+                "current": 5,
+                "real_power": 1150,
+                "reactive_power": 200
+            },
+            {
+                "name": "Battery",
+                "timestamp": "2025-12-04T13:05:00Z",
+                "voltage": 48,
+                "current": 10,
+                "real_power": 480,
+                "reactive_power": 50
+            }
+        ]
     },
     {
-        "name": "Solar Panel"
+        "gatewayID": "GW001",
+        "devices": [
+            {
+                "name": "Solar Panel",
+                "timestamp": "2025-12-04T13:00:00Z",
+                "voltage": 230,
+                "current": 5,
+                "real_power": 1150,
+                "reactive_power": 200
+            },
+            {
+                "name": "Battery",
+                "timestamp": "2025-12-04T13:05:00Z",
+                "voltage": 48,
+                "current": 10,
+                "real_power": 480,
+                "reactive_power": 50
+            }
+        ]
+    },
+    {
+        "gatewayID": "GW001",
+        "devices": [
+            {
+                "name": "Solar Panel",
+                "voltage": 230
+            }
+        ]
+    },
+    {
+        "gatewayID": "GW002",
+        "devices": {
+            "device": {
+                "name": "Battery",
+                "voltage": "48"
+            }
+        }
     }
 ]
