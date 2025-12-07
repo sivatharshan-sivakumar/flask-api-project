@@ -1,84 +1,87 @@
+Flask IoT Gateway API — JSON, XML, DynamoDB, Authentication, Dockerized
+
+This project demonstrates a real-world backend progression, starting from a simple CRUD API and evolving into a cloud-ready, multi-format, secure, and containerized service.
+
  Project Evolution / Version History
-
-This project was developed in multiple phases to demonstrate real-world backend progression — starting from a simple local API and gradually transforming into a cloud-ready, Dockerized, multi-format backend system.
-
 🔹 Phase 1 — Basic Local CRUD API (Initial Version)
 
 Features implemented:
 
-Flask server with /api/data route
+Flask server with /api/data
 
 JSON-only request & response
 
-Local storage in data.json
+Local data storage in data.json
 
-Basic Create, Read, Update, Delete
+CRUD operations: GET, POST, PUT, DELETE
 
-Tested with Postman
+API tested using Postman
 
 Purpose:
-Build a simple working REST API — ideal as a beginner backend foundation.
+Build a simple working REST API — a solid beginner backend foundation.
 
-🔹 Phase 2 — Authentication Added
+🔹 Phase 2 — Added Authentication
 
 Upgrades:
 
-Integrated Basic Authentication (Flask-HTTPAuth)
+Integrated Flask-HTTPAuth
 
-Passwords hashed using Werkzeug
+Implemented Basic Authentication
 
-Postman authentication testing
+Passwords stored using hashing (Werkzeug)
+
+Verified via Postman
 
 Purpose:
-Introduce API security and authenticated access.
+Introduce security and restricted access to API endpoints.
 
-🔹 Phase 3 — XML Support Added
+🔹 Phase 3 — Added XML Support
 
-Major enhancements:
+Enhancements:
 
-API can accept XML input
+API accepts XML input
 
-API can return XML output
+API returns XML output
 
-Automatic format detection:
+Format auto-detected via headers:
 
-Based on Content-Type and Accept headers
+Content-Type
+
+Accept
 
 XML parsing using xmltodict
 
-Clean XML formatting using dicttoxml
+Clean XML output using dicttoxml
 
 Purpose:
-Support both JSON and XML clients — useful for IoT, legacy systems, and enterprise integrations.
+Enable support for IoT devices, enterprise systems, and legacy clients that require XML.
 
 🔹 Phase 4 — Input Validation Layer
 
-Upgrades:
-
-Gateway/device payload validation
-
-Ensured:
+Implemented validation rules:
 
 gatewayID required
 
 devices required
 
-Each device must have name + voltage
+Each device requires:
 
-Rejects invalid XML or JSON
+name
+
+voltage
+
+Rejects malformed XML/JSON.
 
 Purpose:
-Prevent malformed or unexpected payloads — required for real APIs.
+Ensure reliability and prevent corrupted data.
 
-🔹 Phase 5 — Migrated Storage from JSON → AWS DynamoDB
+🔹 Phase 5 — Migration to AWS DynamoDB
 
 Upgrades:
 
-Connected AWS DynamoDB using boto3
+Integrated boto3 SDK
 
-Created DynamoDB table Gateways
-
-Replaced file operations with:
+Replaced JSON file operations with DynamoDB:
 
 scan()
 
@@ -88,43 +91,133 @@ get_item()
 
 delete_item()
 
-Supports cloud-based persistent storage
+All gateway entries now stored in AWS.
 
 Purpose:
-Make the system cloud-ready and scalable.
+Make the system scalable and cloud-ready.
 
-🔹 Phase 6 — Dockerized the Application
+🔹 Phase 6 — Dockerization
 
 Enhancements:
 
 Added Dockerfile
 
-Packaged Flask API + all dependencies
+Packaged Flask API into a Docker image
 
-Set environment variables for AWS credentials
+Injected AWS credentials via environment variables
 
-Tested container with:
+Tested with:
 
 docker build -t flask-api .
 docker run -p 5000:5000 flask-api
 
 
 Purpose:
-Ensure your API runs consistently across all machines and is ready for deployment.
+Ensure the API runs the same everywhere — local or cloud.
 
-🔹 Phase 7 — Cloud Deployment Ready
+🔹 Phase 7 — AWS Deployment Ready
 
-(Not fully deployed yet, but structure prepared)
+(Prepared but not deployed yet)
 
-Prepared for:
+Supports:
 
-AWS EC2 deployment
+Deployment to AWS EC2
 
-HTTPS via AWS Load Balancer
+HTTPS using AWS Load Balancer
 
-GitHub CI/CD
+CI/CD with GitHub Actions
 
-Scaling with ECS or Kubernetes
+Future scaling via ECS or Kubernetes
 
 Purpose:
-Next step toward real-world production hosting.
+Move toward production-grade hosting.
+
+Technologies Used
+
+Python
+
+Flask
+
+Flask-HTTPAuth
+
+DynamoDB (AWS)
+
+JSON & XML processing
+
+Docker
+
+Postman
+
+Git & GitHub
+
+ Project Structure
+PROJECT/
+│── app.py
+│── Dockerfile
+│── requirements.txt
+│── data.json (legacy local storage)
+│── README.md
+└── venv/
+
+ Authentication
+
+Use Basic Auth in Postman:
+
+Username	Password
+admin	password123
+user	userpass
+📡 API Endpoints
+GET all gateways
+GET /api/data
+
+GET a single gateway
+GET /api/data/<gatewayID>
+
+POST add a gateway
+POST /api/data
+
+PUT update a gateway
+PUT /api/data/<gatewayID>
+
+DELETE a gateway
+DELETE /api/data/<gatewayID>
+
+
+Supports both JSON and XML input/output.
+
+ Docker Commands
+
+Build:
+
+docker build -t flask-api .
+
+
+Run:
+
+docker run -p 5000:5000 flask-api
+
+
+Stop (if running):
+
+docker ps
+docker stop <container_id>
+
+ Cloud Readiness
+
+The system is now:
+
+Scalable
+
+Portable
+
+Compatible with AWS services
+
+Ready for EC2 hosting
+
+Ready for HTTPS termination
+
+👨‍💻 Author
+
+Sivatharshan
+Computer Science Graduate | Future Software Engineer
+Currently based in Australia
